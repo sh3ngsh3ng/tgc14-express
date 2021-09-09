@@ -1,0 +1,68 @@
+{{#extends "base"}}
+
+{{#block "content"}}
+    <h1>Contact Us</h1>
+    <form method="POST">
+        <div>
+            <label class="label">Email:</label>
+            <input class="form-control" type="text" name="email"/>
+        </div>
+        <div>
+            <label class="label">Name:</label>
+            <input class="form-control" type="text" name="name"/>
+        </div>
+
+        <!-- select their saluations -->
+        <div>
+            <label class="label">Saluations</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="saluations" value="dr"/>
+                <label class="form-check-label">Dr.</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="saluations" value="mdm"/>
+                <label class="form-check-label">Mdm.</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="saluations" value="ms"/>
+                <label class="form-check-label">Ms.</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="saluations" value="mr"/>
+                <label class="form-check-label">Mr.</label>
+            </div>
+        </div>
+
+        <!-- How do you want to be contacted? -->
+        <div>
+            <label>How do you want your privacy to be compromised</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="contactMethod" value="email"/>
+                <label class="form-check-label">Email</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="contactMethod" value="smoke-signals"/>
+                <label class="form-check-label">Smoke Signals</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="contactMethod" value="telepathic"/>
+                <label class="form-check-label">Telepathic Messages</label>
+            </div>
+
+        </div>
+
+        <div>
+            <label>Select your country</label>
+            <select class="form-control" name="country">
+                <option value="sg">Singapore</option>
+                <option value="my">Malayasia</option>
+                <option value="in">Indonesia</option>
+            </select>
+
+        </div>
+
+
+        <input type="submit" class="btn btn-primary my-3"/>
+    </form>
+{{/block}}
+{{/extends}}
