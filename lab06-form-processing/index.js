@@ -42,19 +42,32 @@ app.post('/contact-us', function(req,res){
     // case 3: empty array
 
     // test if case 3: user didn't select any
-    let contactMethods = req.body.contactMethod;
-    if (contactMethods) {
-        // exists: checkif contactMethods is an array or not
-        if (Array.isArray(contactMethods)==false) {
-            // if contactMethods is not array, then it must be a string
-            // assume, contactMethods = "email"
-            contactMethods = [ contactMethods ]
-            // => contactMethods = [ "email" ]
-        }
-    } else {
-        // otherwise: assign to be an empty array --> CASE 3
-        contactMethods = [];
-    }
+    // let contactMethods = req.body.contactMethod;
+    // if (contactMethods) {
+    //     // exists: checkif contactMethods is an array or not
+    //     if (Array.isArray(contactMethods)==false) {
+    //         // if contactMethods is not array, then it must be a string
+    //         // assume, contactMethods = "email"
+    //         contactMethods = [ contactMethods ]
+    //         // => contactMethods = [ "email" ]
+    //     }
+    // } else {
+    //     // otherwise: assign to be an empty array --> CASE 3
+    //     contactMethods = [];
+    // }
+;
+
+    let contactMethods = req.body.contactMethod || [];
+    // assume req.body.contactMethods contain the string "email"
+    // => contactMethods = "email" || []
+    // => contactMethods = "email"
+
+    // assume req.body.contactMethods contain undefined
+    // => contactMethods = undefined || []
+    // => contactMethods = []
+
+    contactMethods = Array.isArray(contactMethods) ? contactMethods : [ contactMethods ];
+
     console.log(contactMethods);
 })
 
