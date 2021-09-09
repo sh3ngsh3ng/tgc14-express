@@ -1,0 +1,17 @@
+{{#extends 'base'}}
+
+{{#block "content"}}
+    <ul>
+        {{#each fruits}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+
+    {{#ifEquals limit current}}
+        Limit is the same as current
+        {{else}}
+        Limit is not the same as current
+    {{/ifEquals}}
+{{/block}}
+
+{{/extends}}
