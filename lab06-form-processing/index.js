@@ -55,7 +55,6 @@ app.post('/contact-us', function(req,res){
     //     // otherwise: assign to be an empty array --> CASE 3
     //     contactMethods = [];
     // }
-;
 
     let contactMethods = req.body.contactMethod || [];
     // assume req.body.contactMethods contain the string "email"
@@ -70,6 +69,33 @@ app.post('/contact-us', function(req,res){
 
     console.log(contactMethods);
 })
+
+app.get('/bmi', function(req, res){
+    res.render("bmi-form")
+})
+
+app.post('/bmi', function(req,res){
+    console.log(req.body)
+    let weight = parseFloat(req.body.weight);
+    let height = parseFloat(req.body.height);
+    let bmi = weight / (height**2);
+    let color = '';
+    if (bmi <= 18.5) {
+        color = 'red'
+    } else if (bmi < 25.5) {
+        color = 'green'
+    } else if (bmi < 30) {
+        color = 'yellow'
+    } else {
+        color = 'red'
+
+    }
+    res.render('display-bmi',{
+        'bmi': bmi,
+        'color':color
+    })
+})
+
 
 /* 3. Start server */
 app.listen(3000, function(){
